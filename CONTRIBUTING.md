@@ -2,7 +2,7 @@
 
 Thank you for your interest in contributing to CORE-NN! This document provides guidelines for contributing to the project.
 
-## 📋 Table of Contents
+## Table of Contents
 
 - [Getting Started](#getting-started)
 - [Development Setup](#development-setup)
@@ -12,7 +12,7 @@ Thank you for your interest in contributing to CORE-NN! This document provides g
 - [Documentation](#documentation)
 - [Submitting Changes](#submitting-changes)
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -46,7 +46,7 @@ Thank you for your interest in contributing to CORE-NN! This document provides g
    pytest tests/ -v
    ```
 
-## 🤝 Contributing Guidelines
+## Contributing Guidelines
 
 ### Types of Contributions
 
@@ -68,7 +68,7 @@ Based on our research roadmap, these areas are particularly valuable:
 3. **Real-world Task Evaluation** - Test on actual language modeling benchmarks
 4. **Edge Device Optimization** - Improve performance on resource-constrained devices
 
-## 📝 Code Standards
+## Code Standards
 
 ### Python Style
 
@@ -110,7 +110,7 @@ def process_temporal_sequence(
     return processed_embeddings, info_dict
 ```
 
-## 🧪 Testing
+## Testing
 
 ### Running Tests
 
@@ -158,7 +158,7 @@ class TestBiologicalCoreMemory:
         assert condition
 ```
 
-## 📚 Documentation
+## Documentation
 
 ### Documentation Standards
 
@@ -203,7 +203,7 @@ def example_function(param1: str, param2: int = 10) -> bool:
     # Implementation here...
 ```
 
-## 🔄 Submitting Changes
+## Submitting Changes
 
 ### Pull Request Process
 
@@ -264,7 +264,7 @@ test: add comprehensive RTEU temporal processing tests
 - **Keep changes focused** - one feature/fix per PR
 - **Respond to feedback** promptly and professionally
 
-## 🐛 Reporting Issues
+## Reporting Issues
 
 ### Bug Reports
 
@@ -286,7 +286,7 @@ For feature requests, please include:
 - **Proposed implementation** if you have ideas
 - **Alternatives considered**
 
-## 🎯 Research Contributions
+## Research Contributions
 
 ### Novel Architecture Research
 
@@ -306,13 +306,13 @@ We particularly welcome contributions in these areas:
 4. **Compare against baselines** with benchmarks
 5. **Submit a detailed PR** with research documentation
 
-## 📞 Getting Help
+## Getting Help
 
 - **GitHub Issues** - For bugs and feature requests
 - **GitHub Discussions** - For questions and general discussion
 - **Email** - itsparedezadrian@outlook.com for direct contact
 
-## 🙏 Recognition
+## Recognition
 
 Contributors will be recognized in:
 

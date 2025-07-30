@@ -4,24 +4,24 @@ The ASC Tokenizer is a novel tokenization approach designed specifically for COR
 
 ## Key Features
 
-### 🧩 Hybrid Unit Representation
+### Hybrid Unit Representation
 - **Word-level tokens**: For frequent, complete words
 - **Subword units**: For rare or compound terms  
 - **Character fallback**: For unknown words or new languages
 - **Dynamic adaptation**: Adjusts based on input history and context
 
-### 🔄 Context-Aware Token Merging
+### Context-Aware Token Merging
 - Uses shallow n-gram language model for merging decisions
 - Merges frequent multi-word expressions (e.g., "at the same time" → single token)
 - Reduces memory fragmentation in RTEU and improves BCM encoding
 
-### 📈 Self-Evolving Vocabulary
+### Self-Evolving Vocabulary
 - Runtime growing cache of recently seen unknown words
 - Frequency-based promotion to permanent vocabulary
 - Works with IGPM to store new vocabulary without retraining
 - Automatic decay and cleanup of low-frequency tokens
 
-### ⚙️ System Command Integration
+### System Command Integration
 - Prefix tokens for system commands: `#remember`, `#recall`, `#define`, etc.
 - Hardcoded tokens that bypass standard encoding
 - Direct activation of control flow in CORE-NN components

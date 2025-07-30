@@ -59,25 +59,25 @@ mlcs.export_learned_knowledge(
 
 ## Key Features
 
-### 🗜️ **Efficient Compression**
+### **Efficient Compression**
 - ZSTD and GZIP compression for different data types
 - Quantization support for embeddings
 - Sparse tensor format support
 - Typical compression ratios: 0.005-0.1 (99.5%-90% size reduction)
 
-### 🔒 **Data Integrity**
+### **Data Integrity**
 - SHA-256 checksums for corruption detection
 - Format version validation
 - Schema validation for metadata
 - Size verification and bounds checking
 
-### 🧩 **Flexible Structure**
+### **Flexible Structure**
 - Multi-level embeddings with different dimensions
 - Knowledge sketches (attention, gradient, activation patterns)
 - Rich metadata with provenance tracking
 - Extensible compression data section
 
-### 🔄 **MLCS Integration**
+### **MLCS Integration**
 - Seamless loading into MLCS for knowledge injection
 - Export MLCS-compressed knowledge as capsules
 - Memory management and automatic cleanup
@@ -106,25 +106,25 @@ mlcs.export_learned_knowledge(
 
 The system includes several example capsules demonstrating different use cases:
 
-### 📚 **ML Fundamentals** (`ml_fundamentals.kpack`)
+### **ML Fundamentals** (`ml_fundamentals.kpack`)
 - Core machine learning concepts
 - Supervised/unsupervised learning embeddings
 - Neural network and optimization knowledge
 - Size: ~1.4MB → ~7KB (99.5% compression)
 
-### 🔤 **NLP Knowledge** (`nlp_knowledge.kpack`)
+### **NLP Knowledge** (`nlp_knowledge.kpack`)
 - Natural language processing representations
 - Word and sentence embeddings
 - Transformer attention patterns
 - Multilingual support features
 
-### 👁️ **Computer Vision** (`computer_vision.kpack`)
+### **Computer Vision** (`computer_vision.kpack`)
 - Image feature representations
 - Object detection knowledge
 - Spatial attention mechanisms
 - CNN feature maps
 
-### 🧮 **Mathematics** (`mathematics.kpack`)
+### **Mathematics** (`mathematics.kpack`)
 - Mathematical concept embeddings
 - Algebraic and calculus operations
 - Probability and statistics knowledge
@@ -193,25 +193,25 @@ if capsule_errors:
 
 ## Best Practices
 
-### 🎯 **Capsule Design**
+### **Capsule Design**
 - Use descriptive names and topics
 - Include comprehensive metadata
 - Add relevant tags for searchability
 - Document provenance and source data
 
-### 💾 **Storage Management**
+### **Storage Management**
 - Organize capsules by topic/domain
 - Use version numbers for updates
 - Implement backup strategies
 - Monitor disk space usage
 
-### 🔧 **MLCS Integration**
+### **MLCS Integration**
 - Set appropriate memory limits
 - Monitor compression statistics
 - Use batch loading for efficiency
 - Implement graceful error handling
 
-### 🛡️ **Security**
+### **Security**
 - Validate all loaded capsules
 - Use checksums for integrity
 - Implement access controls
@@ -272,11 +272,11 @@ print(f"Valid: {is_valid}, Errors: {errors}")
 
 ## Future Enhancements
 
-- 🔐 Encryption support for sensitive knowledge
-- 🌐 Network streaming for large capsules
-- 📊 Advanced compression algorithms
-- 🔍 Content-based search and indexing
-- 🤖 Automatic knowledge extraction tools
+- Encryption support for sensitive knowledge
+- Network streaming for large capsules
+- Advanced compression algorithms
+- Content-based search and indexing
+- Automatic knowledge extraction tools
 
 ---
 

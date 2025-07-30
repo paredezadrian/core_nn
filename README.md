@@ -1,15 +1,15 @@
 # CORE-NN: Context-Oriented Recurrent Embedding Neural Network
 
-🌐 **Overview**
+**Overview**
 
 CORE-NN is a novel AI architecture designed for edge devices that replaces traditional transformer-based LLMs with efficient, memory-conscious components. **All tests passing (66/66)** with validated performance metrics.
 
 **Key Innovations:**
-- 🧠 **Salience-Based Memory**: BCM retains only important information vs. full attention
-- ⏰ **Multi-Timescale Processing**: RTEU processes temporal patterns at different scales
-- 🧩 **Instruction-Guided Plasticity**: IGPM adapts without global weight updates
-- 📦 **Dynamic Knowledge Compression**: MLCS achieves 125x compression ratios
-- 🚀 **Edge-Efficient Execution**: Asynchronous modular processing
+- **Salience-Based Memory**: BCM retains only important information vs. full attention
+- **Multi-Timescale Processing**: RTEU processes temporal patterns at different scales
+- **Instruction-Guided Plasticity**: IGPM adapts without global weight updates
+- **Dynamic Knowledge Compression**: MLCS achieves 125x compression ratios
+- **Edge-Efficient Execution**: Asynchronous modular processing
 
 **Validated Performance:**
 - **Memory Usage**: ~42MB total (vs GBs for transformers)
@@ -17,7 +17,7 @@ CORE-NN is a novel AI architecture designed for edge devices that replaces tradi
 - **Component Speed**: BCM (0.15ms), RTEU (2.50ms), IGPM (1.45ms)
 - **Compression**: Up to 125x with knowledge packs (.kpack files)
 
-## 🧠 Architecture Components
+## Architecture Components
 
 ### 1. Biological Core Memory (BCM)
 - **Inspiration**: Hippocampus + working memory
@@ -44,7 +44,7 @@ CORE-NN is a novel AI architecture designed for edge devices that replaces tradi
 - **Features**: Dynamic component offloading and compression
 - **API**: `remember()`, `recall()`, `forget()` commands
 
-## 🚀 Quick Start
+## Quick Start
 
 ```bash
 # Install dependencies
@@ -60,7 +60,7 @@ python -m core_nn.cli chat
 python -m core_nn.cli chat --config configs/edge_device.yaml
 ```
 
-## 📦 Installation
+## Installation
 
 ```bash
 git clone https://github.com/paredezadrian/core_nn.git
@@ -68,7 +68,7 @@ cd core_nn
 pip install -e .
 ```
 
-## 🔧 Quick API Reference
+## Quick API Reference
 
 ### Python API
 
@@ -103,7 +103,7 @@ core-nn chat --session-name my_session
 core-nn validate --config-file configs/my_config.yaml
 ```
 
-## 🏗️ Project Structure
+## Project Structure
 
 ```
 core-nn/
@@ -120,7 +120,7 @@ core-nn/
 └── benchmarks/             # Performance benchmarks
 ```
 
-## 📊 Performance Specs
+## Performance Specs
 
 | Component | CPU Usage | RAM | Disk Footprint |
 |-----------|-----------|-----|----------------|
@@ -130,7 +130,7 @@ core-nn/
 | MLCS (10 .kpacks) | Variable | ~2-3 GB | ~50 MB/kpack |
 | **Total** | **Moderate** | **~10-12 GB** | **<1 GB** |
 
-## 🧪 Testing & Validation
+## Testing & Validation
 
 ```bash
 # Run all tests (66 tests, 100% pass rate)
@@ -160,32 +160,32 @@ python -m core_nn.cli validate --config-file configs/default.yaml
 - **Compression Ratio**: Up to 125x compression with MLCS
 - **Test Coverage**: 100% pass rate across all components
 
-## 📚 Documentation
+## Documentation
 
-- [🏗️ Architecture Guide](docs/architecture.md) - Detailed component architecture
-- [📖 API Reference](docs/api.md) - Complete API documentation
-- [🚀 Getting Started](docs/getting_started.md) - Quick start guide
-- [⚙️ Configuration Guide](docs/configuration.md) - Configuration options
-- [📦 KPack Usage Guide](docs/kpack_usage_guide.md) - Knowledge compression
-- [🔤 Tokenizer Guide](docs/tokenizer_guide.md) - Tokenization system
-- [🔬 Areas for Further Exploration](docs/future_research.md) - Research directions
-- [⚠️ Known Limitations](docs/known_limitations.md) - Current limitations
+- [ Architecture Guide](docs/architecture.md) - Detailed component architecture
+- [ API Reference](docs/api.md) - Complete API documentation
+- [ Getting Started](docs/getting_started.md) - Quick start guide
+- [ Configuration Guide](docs/configuration.md) - Configuration options
+- [ KPack Usage Guide](docs/kpack_usage_guide.md) - Knowledge compression
+- [ Tokenizer Guide](docs/tokenizer_guide.md) - Tokenization system
+- [ Areas for Further Exploration](docs/future_research.md) - Research directions
+- [ Known Limitations](docs/known_limitations.md) - Current limitations
 
-## 🤝 Contributing
+##  Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for development guidelines.
 
-## 👨‍💻 Author
+##  Author
 
 **Adrian Paredez** ([@paredezadrian](https://github.com/paredezadrian))
 - Email: itsparedezadrian@outlook.com
 - Repository: https://github.com/paredezadrian/core_nn.git
 
-## 📄 License
+## License
 
 Apache License 2.0 - see [LICENSE](LICENSE) for details.
 
-## 📚 Citation
+## Citation
 
 If you use CORE-NN in your research, please cite:
 

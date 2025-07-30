@@ -6,7 +6,7 @@ This document outlines promising research directions and improvements for the CO
 **Repository:** https://github.com/paredezadrian/core_nn.git
 **Version:** 0.0.0-beta
 
-## 🧠 Biological Core Memory (BCM) Enhancements
+## Biological Core Memory (BCM) Enhancements
 
 ### Salience Mechanism Optimization
 
@@ -32,7 +32,7 @@ This document outlines promising research directions and improvements for the CO
 
 **Potential Impact**: More human-like memory behavior, better knowledge retention and organization.
 
-## ⏰ Recursive Temporal Embedding Unit (RTEU) Improvements
+## Recursive Temporal Embedding Unit (RTEU) Improvements
 
 ### Temporal Scale Optimization
 
@@ -58,7 +58,7 @@ This document outlines promising research directions and improvements for the CO
 
 **Potential Impact**: More efficient and effective temporal information processing.
 
-## 🧩 Instruction-Guided Plasticity Module (IGPM) Research
+## Instruction-Guided Plasticity Module (IGPM) Research
 
 ### Plasticity Mechanisms
 
@@ -84,7 +84,7 @@ This document outlines promising research directions and improvements for the CO
 
 **Potential Impact**: More sophisticated memory-based reasoning, better knowledge transfer.
 
-## 📦 Multi-Level Compression Synthesizer (MLCS) Advances
+## Multi-Level Compression Synthesizer (MLCS) Advances
 
 ### Compression Algorithms
 
@@ -110,7 +110,7 @@ This document outlines promising research directions and improvements for the CO
 
 **Potential Impact**: Ecosystem of reusable knowledge components, collaborative knowledge development.
 
-## 🚀 Edge-Efficient Execution Engine Optimization
+## Edge-Efficient Execution Engine Optimization
 
 ### Resource Management
 
@@ -136,7 +136,7 @@ This document outlines promising research directions and improvements for the CO
 
 **Potential Impact**: Higher throughput, more reliable execution.
 
-## 🔬 Novel Architecture Research
+## Novel Architecture Research
 
 ### Hybrid Architectures
 
@@ -158,7 +158,7 @@ This document outlines promising research directions and improvements for the CO
 
 **Potential Impact**: More brain-like AI systems, better understanding of intelligence.
 
-## 📊 Evaluation and Benchmarking
+## Evaluation and Benchmarking
 
 ### Comprehensive Benchmarks
 
@@ -182,7 +182,7 @@ This document outlines promising research directions and improvements for the CO
 
 **Potential Impact**: Scientific validation of architectural choices, guidance for improvements.
 
-## 🛠️ Implementation and Tooling
+## Implementation and Tooling
 
 ### Development Tools
 
@@ -204,7 +204,7 @@ This document outlines promising research directions and improvements for the CO
 
 **Potential Impact**: Better ecosystem integration, easier adoption.
 
-## 🎯 High-Priority Research Areas
+## High-Priority Research Areas
 
 Based on current implementation status and potential impact:
 
@@ -233,7 +233,7 @@ Based on current implementation status and potential impact:
 - Ecosystem development could drive adoption
 - Important for long-term success
 
-## 🚀 Getting Started with Research
+## Getting Started with Research
 
 ### For Researchers
 
@@ -256,7 +256,7 @@ Based on current implementation status and potential impact:
 3. **Documentation**: Improve and expand documentation
 4. **Tooling**: Develop tools to make CORE-NN easier to use
 
-## 📝 Research Methodology
+## Research Methodology
 
 ### Experimental Design
 

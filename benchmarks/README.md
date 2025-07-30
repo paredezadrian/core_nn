@@ -2,7 +2,7 @@
 
 This directory contains comprehensive benchmarks and tests for the CORE-NN memory system, specifically testing the integration of `#remember()`, `#recall()`, and `#forget()` functionality.
 
-## 📁 Files Overview
+## Files Overview
 
 ### Core Test Files
 
@@ -19,7 +19,7 @@ This directory contains comprehensive benchmarks and tests for the CORE-NN memor
 5. **Performance Stress** - Tests performance under load
 6. **Edge Cases** - Tests error handling and malformed inputs
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Run the Focused Test (Pseudocode Pattern)
 
@@ -53,7 +53,7 @@ python benchmarks/run_memory_benchmark.py --quick
 python benchmarks/run_memory_benchmark.py --verbose
 ```
 
-## 📊 Test Results
+## Test Results
 
 ### Expected Outputs
 
@@ -77,7 +77,7 @@ Success Rate: 100.0%
 - `memory_benchmark_results.json` - Detailed benchmark results
 - `focused_test_results.json` - Focused test results
 
-## 🧪 Test Scenarios
+## Test Scenarios
 
 ### 1. Basic Command Handling
 
@@ -194,7 +194,7 @@ edge_cases = [
 - ✅ Unknown commands ignored or handled
 - ✅ Very long content processed correctly
 
-## 🔧 Configuration
+## Configuration
 
 ### Environment Setup
 
@@ -224,7 +224,7 @@ key_terms = [        # Terms to verify in recall
 ]
 ```
 
-## 📈 Performance Expectations
+## Performance Expectations
 
 ### Typical Performance Metrics
 
@@ -274,7 +274,7 @@ import logging
 logging.basicConfig(level=logging.DEBUG)
 ```
 
-## 📝 Adding New Tests
+## Adding New Tests
 
 ### Test Template
 
@@ -307,7 +307,7 @@ test_functions = [
 ]
 ```
 
-## 📚 References
+## References
 
 - [CORE-NN Architecture](../docs/architecture.md)
 - [Memory Systems Guide](../docs/memory_systems.md)
