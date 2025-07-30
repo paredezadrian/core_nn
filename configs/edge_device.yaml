@@ -1,0 +1,114 @@
+# CORE-NN Edge Device Configuration
+# Optimized for low-resource environments (laptops, edge devices)
+
+model:
+  name: "core-nn-edge"
+  version: "0.1.0"
+  
+# Biological Core Memory - Reduced for edge devices
+bcm:
+  memory_size: 256  # Smaller memory footprint
+  embedding_dim: 512  # Reduced embedding dimension
+  salience_threshold: 0.8  # Higher threshold for selectivity
+  decay_rate: 0.9  # Faster decay to save memory
+  update_gate_type: "linear"  # Simpler update mechanism
+  attention_heads: 4  # Fewer attention heads
+  
+# Recursive Temporal Embedding Unit - Lightweight
+rteu:
+  num_layers: 2  # Fewer layers
+  embedding_dim: 512
+  hidden_dim: 1024  # Smaller hidden dimension
+  num_capsules: 8  # Fewer capsules
+  capsule_dim: 32
+  routing_iterations: 2  # Fewer routing iterations
+  temporal_scales: [1, 8, 32]  # Fewer timescales
+  activation: "relu"  # Simpler activation
+  dropout: 0.05  # Less dropout
+  
+# Instruction-Guided Plasticity Module - Minimal
+igpm:
+  plastic_slots: 32  # Fewer plastic slots
+  meta_learning_rate: 0.01  # Higher learning rate for faster adaptation
+  fast_weight_decay: 0.95
+  instruction_embedding_dim: 128  # Smaller instruction embeddings
+  plasticity_threshold: 0.9  # Higher threshold
+  max_episodic_memories: 500  # Fewer episodic memories
+  
+# Multi-Level Compression Synthesizer - Aggressive compression
+mlcs:
+  compression_ratio: 0.05  # More aggressive compression
+  num_compression_levels: 3
+  latent_dim: 128  # Smaller latent dimension
+  codebook_size: 4096  # Smaller codebook
+  kpack_max_size_mb: 25  # Smaller .kpack files
+  auto_compress_threshold: 0.7  # Compress earlier
+  
+# Edge-Efficient Modular Execution Engine - Conservative
+execution_engine:
+  max_concurrent_modules: 2  # Fewer concurrent modules
+  memory_budget_gb: 8  # Lower memory budget
+  cpu_threads: 2  # Limited CPU threads
+  offload_threshold: 0.6  # Aggressive offloading
+  async_execution: false  # Synchronous for simplicity
+  priority_scheduling: false
+  
+# Device Configuration - CPU optimized
+device:
+  preferred: "cpu"  # Force CPU usage
+  mixed_precision: false  # Disable for CPU
+  compile_model: false
+  memory_efficient: true
+  
+# Training Configuration
+training:
+  batch_size: 1
+  learning_rate: 0.001  # Higher learning rate
+  weight_decay: 0.001  # Less regularization
+  gradient_clipping: 0.5
+  warmup_steps: 500
+  max_steps: 50000
+  
+# Inference Configuration - Conservative
+inference:
+  max_sequence_length: 1024  # Shorter sequences
+  temperature: 0.8
+  top_k: 25  # Smaller top-k
+  top_p: 0.85
+  repetition_penalty: 1.05
+  max_new_tokens: 256  # Fewer new tokens
+  
+# Memory Management - Minimal
+memory:
+  working_memory_size: 128
+  episodic_memory_size: 512
+  semantic_memory_size: 2048
+  memory_consolidation_interval: 50  # More frequent consolidation
+  
+# Logging - Minimal
+logging:
+  level: "WARNING"  # Less verbose logging
+  log_file: null  # No file logging
+  log_memory_usage: false
+  log_inference_time: false
+  tensorboard_dir: null  # No tensorboard
+  
+# Session Management - Lightweight
+session:
+  auto_save: false  # Manual save only
+  save_interval: 600  # Less frequent saves
+  session_dir: "sessions"
+  max_session_history: 5  # Fewer sessions
+  
+# API Configuration - Basic
+api:
+  commands:
+    remember:
+      enabled: true
+      max_items: 50  # Fewer items
+    recall:
+      enabled: true
+      similarity_threshold: 0.9  # Higher threshold
+    forget:
+      enabled: true
+      confirmation_required: true  # Safety for edge devices

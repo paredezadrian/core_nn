@@ -1,0 +1,76 @@
+# ASC Tokenizer Research Configuration
+# Optimized for research and experimentation
+
+# Core vocabulary settings (large for research)
+base_vocab_size: 64000      # Large base vocabulary
+max_vocab_size: 100000      # Very large maximum vocabulary
+min_token_freq: 2           # Lower frequency threshold
+
+# Dynamic vocabulary settings (aggressive adaptation)
+dynamic_vocab_size: 16000   # Large dynamic vocabulary
+adaptation_threshold: 3     # Lower threshold for quick adaptation
+decay_factor: 0.98          # Slower decay to preserve learned tokens
+
+# Contextual merging settings (advanced)
+enable_contextual_merging: true
+max_merge_length: 6         # Longer merges for complex phrases
+merge_threshold: 0.6        # Lower threshold for more merging
+ngram_order: 4              # Higher-order n-gram model
+
+# Hybrid unit representation
+word_level_threshold: 200   # Higher threshold for word-level
+subword_fallback: true
+char_fallback: true
+
+# System command prefixes (comprehensive)
+system_prefixes:
+  - "#remember"
+  - "#recall"
+  - "#forget"
+  - "#define"
+  - "#compress"
+  - "#decompress"
+  - "#stats"
+  - "#help"
+  - "#save"
+  - "#load"
+  - "#clear"
+  - "#analyze"
+  - "#debug"
+  - "#export"
+  - "#import"
+  - "#benchmark"
+
+# Special tokens (extended set)
+special_tokens:
+  "<pad>": 0
+  "<unk>": 1
+  "<bos>": 2
+  "<eos>": 3
+  "<mask>": 4
+  "<sep>": 5
+  "<cls>": 6
+  "<query>": 7
+  "<response>": 8
+  "<context>": 9
+
+# Runtime adaptation settings (aggressive)
+enable_runtime_adaptation: true
+adaptation_window: 2000     # Larger window for better statistics
+memory_consolidation_interval: 1000  # Less frequent consolidation
+
+# Performance settings (research-oriented)
+max_sequence_length: 4096   # Longer sequences
+batch_processing: true      # Enable batching
+parallel_processing: true   # Enable parallel processing
+cache_size: 20000           # Large cache
+
+# Persistence settings
+save_dynamic_vocab: true
+vocab_save_path: "research_tokenizer_vocab.json"
+auto_save_interval: 2000    # Less frequent saves
+
+# Debugging and monitoring (comprehensive)
+enable_logging: true
+log_adaptation_events: true
+track_token_usage: true

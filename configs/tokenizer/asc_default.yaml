@@ -1,0 +1,66 @@
+# ASC Tokenizer Default Configuration
+# Adaptive Semantic Chunking Tokenizer for CORE-NN
+
+# Core vocabulary settings
+base_vocab_size: 32000      # Base vocabulary size
+max_vocab_size: 50000       # Maximum vocabulary including dynamic tokens
+min_token_freq: 3           # Minimum frequency for token inclusion
+
+# Dynamic vocabulary settings
+dynamic_vocab_size: 8000    # Size of dynamic vocabulary cache
+adaptation_threshold: 5     # Uses before a token becomes permanent
+decay_factor: 0.95          # Decay factor for token frequencies
+
+# Contextual merging settings
+enable_contextual_merging: true
+max_merge_length: 4         # Maximum tokens to merge into one
+merge_threshold: 0.7        # Threshold for merging decision
+ngram_order: 3              # N-gram model order for merging
+
+# Hybrid unit representation
+word_level_threshold: 100   # Frequency threshold for word-level tokens
+subword_fallback: true      # Enable subword fallback
+char_fallback: true         # Enable character fallback
+
+# System command prefixes
+system_prefixes:
+  - "#remember"
+  - "#recall"
+  - "#forget"
+  - "#define"
+  - "#compress"
+  - "#stats"
+  - "#help"
+  - "#save"
+  - "#load"
+  - "#clear"
+
+# Special tokens (ID mappings)
+special_tokens:
+  "<pad>": 0
+  "<unk>": 1
+  "<bos>": 2
+  "<eos>": 3
+  "<mask>": 4
+  "<sep>": 5
+
+# Runtime adaptation settings
+enable_runtime_adaptation: true
+adaptation_window: 1000     # Window size for adaptation decisions
+memory_consolidation_interval: 500  # Steps between memory consolidation
+
+# Performance settings
+max_sequence_length: 2048
+batch_processing: true
+parallel_processing: false
+cache_size: 10000           # LRU cache size for tokenization results
+
+# Persistence settings
+save_dynamic_vocab: true
+vocab_save_path: "tokenizer_vocab.json"
+auto_save_interval: 1000    # Auto-save interval in tokenizations
+
+# Debugging and monitoring
+enable_logging: false
+log_adaptation_events: false
+track_token_usage: true

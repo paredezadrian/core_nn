@@ -1,0 +1,126 @@
+# CORE-NN Default Configuration
+# This configuration provides balanced performance for most use cases
+
+model:
+  name: "core-nn-default"
+  version: "0.1.0"
+  
+# Biological Core Memory Configuration
+bcm:
+  memory_size: 512  # Number of memory slots
+  embedding_dim: 768  # Dimension of each memory slot
+  salience_threshold: 0.7  # Threshold for memory retention
+  decay_rate: 0.95  # Memory decay rate per step
+  update_gate_type: "gru"  # gru, lstm, or linear
+  attention_heads: 8
+  
+# Recursive Temporal Embedding Unit Configuration  
+rteu:
+  num_layers: 4
+  embedding_dim: 768
+  hidden_dim: 2048
+  num_capsules: 16
+  capsule_dim: 48
+  routing_iterations: 3
+  temporal_scales: [1, 4, 16, 64]  # Fast to slow timescales
+  activation: "swish"
+  dropout: 0.1
+  
+# Instruction-Guided Plasticity Module Configuration
+igpm:
+  plastic_slots: 64  # Number of plastic memory slots
+  meta_learning_rate: 0.001
+  fast_weight_decay: 0.99
+  instruction_embedding_dim: 256
+  plasticity_threshold: 0.8
+  max_episodic_memories: 1000
+  
+# Multi-Level Compression Synthesizer Configuration
+mlcs:
+  compression_ratio: 0.1  # Target compression ratio
+  num_compression_levels: 4
+  latent_dim: 256
+  codebook_size: 8192
+  kpack_max_size_mb: 50  # Maximum size per .kpack file
+  auto_compress_threshold: 0.9  # Compress when memory usage exceeds this
+  
+# Edge-Efficient Modular Execution Engine Configuration
+execution_engine:
+  max_concurrent_modules: 4
+  memory_budget_gb: 12  # Total memory budget
+  cpu_threads: -1  # -1 for auto-detect
+  offload_threshold: 0.8  # Offload modules when memory exceeds this
+  async_execution: true
+  priority_scheduling: true
+  
+# Device and Performance Configuration
+device:
+  preferred: "auto"  # auto, cpu, cuda, mps
+  mixed_precision: true
+  compile_model: false  # PyTorch 2.0 compilation
+  memory_efficient: true
+  
+# Training Configuration (for fine-tuning)
+training:
+  batch_size: 1  # Edge devices typically use batch size 1
+  learning_rate: 0.0001
+  weight_decay: 0.01
+  gradient_clipping: 1.0
+  warmup_steps: 1000
+  max_steps: 100000
+  
+# Inference Configuration
+inference:
+  max_sequence_length: 2048
+  temperature: 0.7
+  top_k: 50
+  top_p: 0.9
+  repetition_penalty: 1.1
+  max_new_tokens: 512
+  
+# Memory Management
+memory:
+  working_memory_size: 256
+  episodic_memory_size: 1024
+  semantic_memory_size: 4096
+  memory_consolidation_interval: 100  # Steps between consolidation
+  
+# Logging and Monitoring
+logging:
+  level: "INFO"
+  log_file: "core_nn.log"
+  log_memory_usage: true
+  log_inference_time: true
+  tensorboard_dir: "runs"
+  
+# Session Management
+session:
+  auto_save: true
+  save_interval: 300  # seconds
+  session_dir: "sessions"
+  max_session_history: 10
+  
+# Tokenizer Configuration
+tokenizer:
+  type: "asc"  # Adaptive Semantic Chunking
+  preset: "default"  # default, edge, research
+  custom_config_path: null  # Path to custom tokenizer config
+
+  # Override settings (optional)
+  overrides:
+    enable_contextual_merging: true
+    max_sequence_length: 2048
+    cache_size: 10000
+
+# API Configuration
+api:
+  commands:
+    remember:
+      enabled: true
+      max_items: 100
+    recall:
+      enabled: true
+      similarity_threshold: 0.8
+    forget:
+      enabled: true
+      confirmation_required: false

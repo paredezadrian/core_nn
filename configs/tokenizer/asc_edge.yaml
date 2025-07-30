@@ -1,0 +1,62 @@
+# ASC Tokenizer Edge Device Configuration
+# Optimized for memory-constrained edge devices
+
+# Core vocabulary settings (reduced for edge devices)
+base_vocab_size: 16000      # Smaller base vocabulary
+max_vocab_size: 24000       # Lower maximum vocabulary
+min_token_freq: 5           # Higher frequency threshold
+
+# Dynamic vocabulary settings (conservative)
+dynamic_vocab_size: 4000    # Smaller dynamic vocabulary
+adaptation_threshold: 8     # Higher threshold for adaptation
+decay_factor: 0.90          # More aggressive decay
+
+# Contextual merging settings (simplified)
+enable_contextual_merging: true
+max_merge_length: 3         # Shorter merges
+merge_threshold: 0.8        # Higher threshold
+ngram_order: 2              # Simpler n-gram model
+
+# Hybrid unit representation
+word_level_threshold: 50    # Lower threshold for word-level
+subword_fallback: true
+char_fallback: true
+
+# System command prefixes (essential only)
+system_prefixes:
+  - "#remember"
+  - "#recall"
+  - "#forget"
+  - "#stats"
+  - "#help"
+  - "#clear"
+
+# Special tokens
+special_tokens:
+  "<pad>": 0
+  "<unk>": 1
+  "<bos>": 2
+  "<eos>": 3
+  "<mask>": 4
+  "<sep>": 5
+
+# Runtime adaptation settings (conservative)
+enable_runtime_adaptation: true
+adaptation_window: 500      # Smaller window
+memory_consolidation_interval: 250  # More frequent consolidation
+
+# Performance settings (optimized for edge)
+max_sequence_length: 1024   # Shorter sequences
+batch_processing: false     # Disable batching
+parallel_processing: false  # No parallel processing
+cache_size: 5000            # Smaller cache
+
+# Persistence settings
+save_dynamic_vocab: true
+vocab_save_path: "edge_tokenizer_vocab.json"
+auto_save_interval: 500     # More frequent saves
+
+# Debugging and monitoring (minimal)
+enable_logging: false
+log_adaptation_events: false
+track_token_usage: false    # Disable to save memory
