@@ -4,7 +4,7 @@ This document outlines promising research directions and improvements for the CO
 
 **Author:** Adrian Paredez ([@paredezadrian](https://github.com/paredezadrian))
 **Repository:** https://github.com/paredezadrian/core_nn.git
-**Version:** 0.0.0-beta
+**Version:** 0.1.0-beta
 
 ## Biological Core Memory (BCM) Enhancements
 

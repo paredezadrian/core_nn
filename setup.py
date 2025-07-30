@@ -28,7 +28,7 @@ requirements = [
 
 setup(
     name="core-nn",
-    version="0.0.0-beta",
+    version="0.1.0-beta",
     author="Adrian Paredez",
     author_email="itsparedezadrian@outlook.com",
     description="Context-Oriented Recurrent Embedding Neural Network for Edge Devices",
