@@ -141,6 +141,9 @@ pytest tests/test_core_components.py::TestBiologicalCoreMemory -v
 pytest tests/test_core_components.py::TestRecursiveTemporalEmbeddingUnit -v
 pytest tests/test_core_components.py::TestInstructionGuidedPlasticityModule -v
 
+# Test enhanced IGPM plasticity improvements
+python test_igpm_improvements.py
+
 # Run architecture validation tests
 python test_architecture_focused.py
 
@@ -194,7 +197,7 @@ If you use CORE-NN in your research, please cite:
   title={CORE-NN: Context-Oriented Recurrent Embedding Neural Network},
   author={Paredez, Adrian},
   year={2024},
-  version={0.0.0-beta},
+  version={0.1.0-beta},
   url={https://github.com/paredezadrian/core_nn.git}
 }
 ```
