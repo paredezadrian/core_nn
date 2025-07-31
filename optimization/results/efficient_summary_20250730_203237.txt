@@ -1,0 +1,26 @@
+Efficient CORE-NN Evaluation Summary
+==================================================
+
+PLASTICITY EVALUATION:
+  Score: 22.2867
+  Execution Time: 1.33s
+  Memory Usage: 0.00MB
+  Model Parameters: 228,863,033
+  Key Metrics:
+    average_plasticity_magnitude: 55.5380
+    average_adaptation_speed: 0.2304
+    average_context_sensitivity: 0.0081
+    num_instructions_tested: 8.0000
+
+GLUE EVALUATION:
+  Score: 0.8333
+  Execution Time: 2.83s
+  Memory Usage: 0.00MB
+  Model Parameters: 228,863,033
+  Key Metrics:
+    rte_score: 1.0000
+    wnli_score: 0.5000
+    sentiment_score: 1.0000
+    average_score: 0.8333
+    num_tasks: 3.0000
+

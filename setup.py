@@ -28,7 +28,7 @@ requirements = [
 
 setup(
     name="core-nn",
-    version="0.2.0",
+    version="0.2.1",
     author="Adrian Paredez",
     author_email="itsparedezadrian@outlook.com",
     description="Production-ready AI architecture with 80.4% parameter efficiency and transformer-level performance",
