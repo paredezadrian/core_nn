@@ -4,7 +4,7 @@ Main CORE-NN Model - Integrates all architectural components.
 The CoreNNModel combines BCM, RTEU, IGPM, MLCS, and the execution engine
 into a unified model for edge-efficient AI processing.
 
-Copyright 2024 Adrian Paredez
+Copyright 2025 Adrian Paredez
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

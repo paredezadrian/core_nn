@@ -174,3 +174,5 @@ target/
 test_results/
 test_outputs/
 demo_knowledge.kpack
+
+.augmentignore

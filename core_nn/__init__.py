@@ -4,7 +4,7 @@ CORE-NN: Context-Oriented Recurrent Embedding Neural Network
 A modular AI architecture designed for edge devices that replaces traditional
 transformer-based LLMs with efficient, memory-conscious components.
 
-Copyright 2024 Adrian Paredez
+Copyright 2025 Adrian Paredez
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
