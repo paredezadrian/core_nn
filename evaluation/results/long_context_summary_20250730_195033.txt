@@ -1,0 +1,15 @@
+Long-Context Evaluation Summary
+========================================
+
+CORE_NN RESULTS:
+  1000 chars: 100.00% success, 20.89s, 50.00% accuracy
+  2000 chars: 0.00% success, 0.00s, 0.00% accuracy
+  4000 chars: 0.00% success, 0.00s, 0.00% accuracy
+  8000 chars: 0.00% success, 0.00s, 0.00% accuracy
+
+TRANSFORMER RESULTS:
+  1000 chars: 100.00% success, 0.63s, 50.00% accuracy
+  2000 chars: 100.00% success, 0.62s, 50.00% accuracy
+  4000 chars: 100.00% success, 0.62s, 50.00% accuracy
+  8000 chars: 100.00% success, 0.62s, 50.00% accuracy
+

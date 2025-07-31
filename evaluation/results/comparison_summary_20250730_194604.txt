@@ -1,0 +1,28 @@
+CORE-NN vs Transformer Baseline Comparison
+==================================================
+
+CORE-NN Overall Score: 0.6111
+Transformer Overall Score: 0.8333
+Performance Difference: -0.2222
+Relative Improvement: -26.67%
+
+Task Breakdown:
+  RTE:
+    CORE-NN: 0.6667
+    Transformer: 1.0000
+    Difference: -0.3333
+
+  WNLI:
+    CORE-NN: 0.5000
+    Transformer: 0.5000
+    Difference: 0.0000
+
+  SENTIMENT:
+    CORE-NN: 0.6667
+    Transformer: 1.0000
+    Difference: -0.3333
+
+Execution Times:
+  CORE-NN: 10.35s
+  Transformer: 0.91s
+  Speed Ratio: 0.09x
