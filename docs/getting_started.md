@@ -6,7 +6,7 @@
 
 1. **Clone the repository:**
 ```bash
-git clone https://github.com/your-org/core-nn.git
+git clone https://github.com/paredezadrian/core_nn.git
 cd core-nn
 ```
 

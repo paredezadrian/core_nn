@@ -144,10 +144,10 @@ pytest tests/test_core_components.py::TestRecursiveTemporalEmbeddingUnit -v
 pytest tests/test_core_components.py::TestInstructionGuidedPlasticityModule -v
 
 # Test enhanced IGPM plasticity improvements
-python test_igpm_improvements.py
+python scripts/test_igpm_improvements.py
 
 # Run architecture validation tests
-python test_architecture_focused.py
+python scripts/test_architecture_focused.py
 
 # Run performance benchmarks
 python benchmarks/performance_benchmark.py

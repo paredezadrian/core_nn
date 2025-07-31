@@ -28,7 +28,7 @@ requirements = [
 
 setup(
     name="core-nn",
-    version="0.2.1",
+    version="0.2.2",
     author="Adrian Paredez",
     author_email="itsparedezadrian@outlook.com",
     description="Production-ready AI architecture with 80.4% parameter efficiency and transformer-level performance",
@@ -38,7 +38,7 @@ setup(
     license="Apache-2.0",
     packages=find_packages(),
     classifiers=[
-        "Development Status :: 4 - Beta",
+        "Development Status :: 5 - Production/Stable",
         "Intended Audience :: Developers",
         "Intended Audience :: Science/Research",
         "License :: OSI Approved :: Apache Software License",

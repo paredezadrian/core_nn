@@ -332,7 +332,7 @@ def create_config_template(template_name: str = "basic") -> Dict[str, Any]:
     
     elif template_name == "minimal":
         return {
-            "model": {"name": "core-nn-minimal", "version": "0.1.0"},
+            "model": {"name": "core-nn-minimal", "version": "0.2.2"},
             "bcm": {"memory_size": 128, "embedding_dim": 256},
             "rteu": {"num_layers": 1, "embedding_dim": 256},
             "igpm": {"plastic_slots": 16},

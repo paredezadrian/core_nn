@@ -4,7 +4,7 @@ This document provides comprehensive API documentation for CORE-NN (Context-Orie
 
 **Author:** Adrian Paredez ([@paredezadrian](https://github.com/paredezadrian))
 **Repository:** https://github.com/paredezadrian/core_nn.git
-**Version:** 0.0.0-beta
+**Version:** 0.2.2
 
 ## Table of Contents
 
