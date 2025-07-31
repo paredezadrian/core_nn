@@ -1,0 +1,99 @@
+api:
+  commands:
+    forget:
+      confirmation_required: true
+      enabled: true
+    recall:
+      enabled: true
+      similarity_threshold: 0.85
+    remember:
+      enabled: true
+      max_items: 50
+bcm:
+  attention_heads: 4
+  decay_rate: 0.98
+  embedding_dim: 512
+  memory_size: 128
+  salience_threshold: 0.9
+  update_gate_type: gru
+device:
+  compile_model: false
+  memory_efficient: true
+  mixed_precision: false
+  preferred: cpu
+execution_engine:
+  async_execution: false
+  cpu_threads: 8
+  max_concurrent_modules: 2
+  memory_budget_gb: 8
+  offload_threshold: 0.7
+  priority_scheduling: true
+igpm:
+  fast_weight_decay: 0.995
+  instruction_embedding_dim: 128
+  max_episodic_memories: 250
+  meta_learning_rate: 0.0005
+  plastic_slots: 16
+  plasticity_threshold: 0.85
+inference:
+  max_new_tokens: 128
+  max_sequence_length: 20
+  repetition_penalty: 1.05
+  temperature: 0.8
+  top_k: 30
+  top_p: 0.85
+logging:
+  level: INFO
+  log_file: core_nn_laptop.log
+  log_inference_time: true
+  log_memory_usage: true
+  tensorboard_dir: runs_laptop
+memory:
+  episodic_memory_size: 256
+  memory_consolidation_interval: 25
+  semantic_memory_size: 1024
+  working_memory_size: 64
+mlcs:
+  auto_compress_threshold: 0.8
+  codebook_size: 4096
+  compression_ratio: 0.05
+  kpack_max_size_mb: 25
+  latent_dim: 128
+  num_compression_levels: 3
+model:
+  name: core-nn-laptop-optimized
+  version: 0.2.2
+rteu:
+  activation: gelu
+  capsule_dim: 32
+  dropout: 0.05
+  embedding_dim: 512
+  hidden_dim: 1024
+  num_capsules: 8
+  num_layers: 2
+  routing_iterations: 1
+  temporal_scales:
+  - 1
+  - 2
+  - 4
+  - 8
+session:
+  auto_save: true
+  max_session_history: 5
+  save_interval: 600
+  session_dir: sessions
+tokenizer:
+  custom_config_path: null
+  overrides:
+    cache_size: 5000
+    enable_contextual_merging: true
+    max_sequence_length: 1024
+  preset: edge
+  type: asc
+training:
+  batch_size: 1
+  gradient_clipping: 0.5
+  learning_rate: 5.0e-05
+  max_steps: 50000
+  warmup_steps: 500
+  weight_decay: 0.005

@@ -9,6 +9,7 @@ import torch
 import numpy as np
 import time
 import json
+import argparse
 from pathlib import Path
 from typing import Dict, Any, List, Tuple
 from dataclasses import dataclass, asdict
@@ -312,15 +313,54 @@ class BaselineComparator:
 
 
 if __name__ == "__main__":
-    # Run baseline comparison
-    config = EvaluationConfig()
-    comparator = BaselineComparator(config)
+    # Parse command line arguments
+    parser = argparse.ArgumentParser(description="CORE-NN vs Transformer Baseline Comparison")
+    parser.add_argument("--cpu-only", action="store_true",
+                       help="Force CPU-only evaluation")
+    parser.add_argument("--baseline", type=str, default="transformer-cpu",
+                       help="Baseline model type (transformer-cpu, etc.)")
+    parser.add_argument("--config", type=str, default="configs/laptop_optimized.yaml",
+                       help="CORE-NN model configuration file path")
+    parser.add_argument("--output", type=str, default="baseline_comparison_results.json",
+                       help="Output file name for results")
+    parser.add_argument("--num-samples", type=int, default=50,
+                       help="Number of samples for evaluation")
+    parser.add_argument("--seed", type=int, default=42,
+                       help="Random seed for reproducibility")
     
+    args = parser.parse_args()
+    
+    # Determine device based on arguments
+    device = "cpu" if args.cpu_only else "auto"
+    
+    # Create evaluation configuration
+    config = EvaluationConfig(
+        model_config_path=args.config,
+        device=device,
+        num_samples=args.num_samples,
+        seed=args.seed
+    )
+    
+    print(f"Starting CORE-NN vs Transformer comparison")
+    print(f"Device: {device}")
+    print(f"Baseline: {args.baseline}")
+    print(f"Config: {args.config}")
+    print(f"Output: {args.output}")
+    
+    # Run baseline comparison
+    comparator = BaselineComparator(config)
     result = comparator.run_comparison()
     
     # Save results
     output_dir = Path("evaluation/results")
     comparator.save_comparison_results(result, output_dir)
+    
+    # Save with specified filename if provided
+    if args.output:
+        output_path = output_dir / args.output
+        with open(output_path, 'w') as f:
+            json.dump(asdict(result), f, indent=2, default=str)
+        print(f"\nResults saved to {output_path}")
     
     # Print summary
     print(f"\n🎯 COMPARISON SUMMARY:")

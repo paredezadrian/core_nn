@@ -23,11 +23,14 @@ pip install -e .
 ### Initialize a Project
 
 ```bash
-# Initialize with default configuration
-core-nn init
+# Initialize with optimized configuration (recommended)
+core-nn init --config configs/laptop_optimized_flexible_sequences.yaml
 
 # Initialize with edge device configuration
 core-nn init --config-template edge_device
+
+# Initialize with aggressively optimized configuration
+core-nn init --config configs/laptop_aggressively_optimized.yaml
 
 # Initialize in specific directory
 core-nn init --output-dir my_project
@@ -36,11 +39,14 @@ core-nn init --output-dir my_project
 ### Start Interactive Chat
 
 ```bash
-# Start chat with default configuration
-core-nn chat
+# Start chat with optimized configuration (recommended)
+core-nn chat --config configs/laptop_optimized_flexible_sequences.yaml
 
-# Start chat with custom configuration
+# Start chat with edge device configuration
 core-nn chat --config configs/edge_device.yaml
+
+# Start chat with aggressively optimized configuration
+core-nn chat --config configs/laptop_aggressively_optimized.yaml
 
 # Start chat with specific session name
 core-nn chat --session-name my_session
@@ -53,12 +59,16 @@ core-nn chat --session-name my_session
 ```python
 from core_nn import CoreNNModel, ConfigManager
 
-# Load configuration
+# Load optimized configuration (recommended)
 config_manager = ConfigManager()
-config = config_manager.load_config('configs/default.yaml')
+config = config_manager.load_config('configs/laptop_optimized_flexible_sequences.yaml')
 
 # Create model
 model = CoreNNModel(config)
+
+# For long-context processing
+from optimization.long_context_fix import LongContextCoreNNModel
+long_context_model = LongContextCoreNNModel(config, max_sequence_length=8192)
 
 # Start session
 model.start_session()
@@ -90,6 +100,15 @@ core-nn validate --config-file configs/my_config.yaml
 core-nn optimize-config --input-file configs/default.yaml \
                        --output-file configs/optimized.yaml \
                        --deployment edge
+
+# Test long-context capabilities
+python optimization/long_context_fix.py --max-tokens 4096 --cpu-only
+
+# Test parameter optimization
+python optimization/aggressive_parameter_reduction.py --target 53000000
+
+# Test memory-intensive tasks
+python evaluation/evaluation_framework.py --memory-focus --cpu-only
 ```
 
 ## Configuration
@@ -130,8 +149,10 @@ export CORE_NN_EXECUTION_ENGINE_MEMORY_BUDGET_GB=8
 ### Configuration Templates
 
 Available templates:
+- `laptop_optimized_flexible_sequences`: **RECOMMENDED** - Optimized for laptops with long-context support
+- `laptop_aggressively_optimized`: Highly optimized with 77.9% parameter reduction
+- `edge_device`: Optimized for edge devices and resource-constrained environments
 - `default`: Balanced configuration for most use cases
-- `edge_device`: Optimized for laptops and edge devices
 - `minimal`: Minimal resource usage for testing
 
 ## Memory Operations

@@ -18,6 +18,7 @@ import seaborn as sns
 from pathlib import Path
 import sys
 import json
+import argparse
 
 # Add core_nn to path
 sys.path.insert(0, str(Path(__file__).parent.parent))
@@ -468,17 +469,55 @@ class PerformanceBenchmark:
 
 def main():
     """Run performance benchmarks."""
+    # Parse command line arguments
+    parser = argparse.ArgumentParser(description="CORE-NN Performance Benchmark")
+    parser.add_argument("--cpu-focus", action="store_true",
+                       help="Focus on CPU-only performance")
+    parser.add_argument("--detailed-timing", action="store_true",
+                       help="Enable detailed timing analysis")
+    parser.add_argument("--output", type=str, default="speed_analysis.json",
+                       help="Output file name for results")
+    parser.add_argument("--config", type=str, default="configs/laptop_optimized.yaml",
+                       help="Model configuration file path")
+    parser.add_argument("--components-only", action="store_true",
+                       help="Benchmark only individual components")
+    parser.add_argument("--full-model-only", action="store_true",
+                       help="Benchmark only full model")
+    parser.add_argument("--seed", type=int, default=42,
+                       help="Random seed for reproducibility")
+    
+    args = parser.parse_args()
+    
+    # Set device based on arguments
+    if args.cpu_focus:
+        torch.set_num_threads(8)  # Use 8 CPU cores
+        print("🔧 CPU-focused benchmarking enabled")
+    
+    # Set random seed
+    torch.manual_seed(args.seed)
+    np.random.seed(args.seed)
+    
     benchmark = PerformanceBenchmark()
     
     try:
-        # Run benchmarks
-        benchmark.benchmark_components()
-        benchmark.benchmark_full_model()
-        benchmark.benchmark_scalability()
+        # Run benchmarks based on arguments
+        if not args.full_model_only:
+            benchmark.benchmark_components()
+        
+        if not args.components_only:
+            benchmark.benchmark_full_model()
+            benchmark.benchmark_scalability()
         
         # Save and summarize results
         benchmark.save_results()
         benchmark.print_summary()
+        
+        # Save with specified filename if provided
+        if args.output:
+            output_path = Path("benchmark_results") / args.output
+            with open(output_path, 'w') as f:
+                json.dump(benchmark.results, f, indent=2, default=str)
+            print(f"\nResults saved to {output_path}")
         
         print("\n✅ Benchmark completed successfully!")
         

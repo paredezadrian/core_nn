@@ -143,11 +143,12 @@ class EfficientCoreNNModel(nn.Module):
         }
         
         # 2. RTEU (Recursive Temporal Embedding)
-        rteu_output = self.rteu(hidden_states)
-        hidden_states = rteu_output["hidden_states"]
+        rteu_output, rteu_info = self.rteu(hidden_states)
+        hidden_states = rteu_output
         component_info["rteu_info"] = {
-            "temporal_scales": rteu_output.get("temporal_scales", []),
-            "attention_weights": rteu_output.get("attention_weights", [])
+            "layer_activations": rteu_info.get("layer_activations", []),
+            "global_state_norm": rteu_info.get("global_state_norm", 0.0),
+            "output_norm": rteu_info.get("output_norm", 0.0)
         }
         
         # 3. Efficient IGPM (Instruction-Guided Plasticity)

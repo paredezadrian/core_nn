@@ -55,7 +55,7 @@ Offset | Size | Field           | Description
   "compressed_size": 262144,
   "embedding_dimensions": [768, 512, 256],
   "sketch_types": ["attention", "gradient", "activation"],
-  "source_model": "core-nn-v0.2.2",
+  "source_model": "core-nn-v0.3.0",
   "compatibility": {
     "min_core_nn_version": "0.2.2",
     "required_features": ["mlcs", "rteu"]

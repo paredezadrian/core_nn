@@ -57,7 +57,7 @@ class CapsuleMetadata:
     compressed_size: int = 0
     embedding_dimensions: List[int] = field(default_factory=list)
     sketch_types: List[str] = field(default_factory=list)
-    source_model: str = "core-nn-v0.2.2"
+    source_model: str = "core-nn-v0.3.0"
     
     # Compatibility information
     compatibility: Dict[str, Any] = field(default_factory=lambda: {

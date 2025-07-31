@@ -1,0 +1,96 @@
+api:
+  commands:
+    forget:
+      confirmation_required: false
+      enabled: true
+    recall:
+      enabled: true
+      similarity_threshold: 0.8
+    remember:
+      enabled: true
+      max_items: 100
+bcm:
+  attention_heads: 8
+  decay_rate: 0.95
+  embedding_dim: 768
+  memory_size: 512
+  salience_threshold: 0.7
+  update_gate_type: gru
+device:
+  compile_model: false
+  memory_efficient: true
+  mixed_precision: true
+  preferred: auto
+execution_engine:
+  async_execution: true
+  cpu_threads: -1
+  max_concurrent_modules: 4
+  memory_budget_gb: 12
+  offload_threshold: 0.8
+  priority_scheduling: true
+igpm:
+  fast_weight_decay: 0.99
+  instruction_embedding_dim: 256
+  max_episodic_memories: 1000
+  meta_learning_rate: 0.001
+  plastic_slots: 64
+  plasticity_threshold: 0.8
+inference:
+  max_new_tokens: 512
+  max_sequence_length: 2048
+  repetition_penalty: 1.1
+  temperature: 0.7
+  top_k: 50
+  top_p: 0.9
+logging:
+  level: INFO
+  log_file: core_nn.log
+  log_inference_time: true
+  log_memory_usage: true
+  tensorboard_dir: runs
+memory:
+  episodic_memory_size: 1024
+  memory_consolidation_interval: 100
+  semantic_memory_size: 4096
+  working_memory_size: 256
+mlcs:
+  auto_compress_threshold: 0.9
+  codebook_size: 8192
+  compression_ratio: 0.1
+  kpack_max_size_mb: 50
+  latent_dim: 256
+  num_compression_levels: 4
+model:
+  name: core-nn-default
+  version: 0.2.2
+rteu:
+  activation: swish
+  capsule_dim: 48
+  dropout: 0.1
+  embedding_dim: 768
+  hidden_dim: 2048
+  num_capsules: 16
+  num_layers: 4
+  routing_iterations: 3
+  temporal_scales:
+  - 1
+  - 4
+  - 16
+  - 64
+session:
+  auto_save: true
+  max_session_history: 10
+  save_interval: 300
+  session_dir: sessions
+tokenizer:
+  custom_config_path: null
+  overrides: {}
+  preset: default
+  type: asc
+training:
+  batch_size: 1
+  gradient_clipping: 1.0
+  learning_rate: 0.0001
+  max_steps: 100000
+  warmup_steps: 1000
+  weight_decay: 0.01

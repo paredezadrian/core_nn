@@ -290,6 +290,98 @@ def optimize_config(ctx, input_file, output_file, deployment):
 
 @cli.command()
 @click.option('--config-file', '-c', type=click.Path(exists=True), required=True,
+              help='Configuration file to optimize')
+@click.option('--cpu-only', is_flag=True, help='Optimize for CPU-only inference')
+@click.option('--memory-efficient', is_flag=True, help='Enable memory-efficient optimizations')
+@click.option('--output-file', '-o', type=click.Path(), help='Output optimized configuration file')
+@click.option('--benchmark', is_flag=True, help='Run performance benchmark after optimization')
+@click.pass_context
+def optimize_inference(ctx, config_file, cpu_only, memory_efficient, output_file, benchmark):
+    """Optimize inference pipeline for CPU-only setup."""
+    config_manager = ctx.obj['config_manager']
+    
+    try:
+        # Load current configuration
+        current_config = config_manager.load_config(config_file)
+        
+        click.echo("🔧 Optimizing inference pipeline...")
+        
+        # Apply CPU-only optimizations
+        if cpu_only:
+            click.echo("  - Enabling CPU-only optimizations")
+            current_config.device.preferred = "cpu"
+            current_config.device.mixed_precision = False
+            current_config.device.compile_model = False
+            current_config.execution_engine.cpu_threads = 8
+            current_config.execution_engine.async_execution = False
+        
+        # Apply memory-efficient optimizations
+        if memory_efficient:
+            click.echo("  - Enabling memory-efficient optimizations")
+            current_config.memory.working_memory_size = 64  # Reduced from 128
+            current_config.memory.episodic_memory_size = 256  # Reduced from 512
+            current_config.memory.semantic_memory_size = 1024  # Reduced from 2048
+            current_config.memory.memory_consolidation_interval = 25  # More frequent
+        
+        # Optimize inference settings
+        click.echo("  - Optimizing inference parameters")
+        current_config.inference.max_sequence_length = 20  # Conservative for laptop
+        current_config.inference.temperature = 0.8  # Slightly higher for creativity
+        current_config.inference.top_k = 30  # Reduced from 40
+        current_config.inference.top_p = 0.85  # Reduced from 0.9
+        current_config.inference.repetition_penalty = 1.05  # Reduced from 1.1
+        current_config.inference.max_new_tokens = 128  # Reduced from 256
+        
+        # Optimize component settings for speed
+        click.echo("  - Optimizing component settings")
+        current_config.bcm.memory_size = 128  # Reduced from 256
+        current_config.bcm.salience_threshold = 0.9  # Higher threshold
+        current_config.rteu.num_layers = 2  # Reduced from 3
+        current_config.rteu.routing_iterations = 1  # Reduced from 2
+        current_config.igpm.plastic_slots = 16  # Reduced from 32
+        current_config.igpm.max_episodic_memories = 250  # Reduced from 500
+        
+        # Save optimized configuration
+        if output_file:
+            config_manager.save_config(current_config, output_file)
+            click.echo(f"✅ Optimized configuration saved to: {output_file}")
+        else:
+            # Overwrite original file
+            config_manager.save_config(current_config, config_file)
+            click.echo(f"✅ Optimized configuration saved to: {config_file}")
+        
+        # Show optimization summary
+        click.echo("\n📋 Optimization Summary:")
+        click.echo(f"  Device: {current_config.device.preferred}")
+        click.echo(f"  CPU Threads: {current_config.execution_engine.cpu_threads}")
+        click.echo(f"  Memory Size: {current_config.memory.working_memory_size}")
+        click.echo(f"  Max Sequence Length: {current_config.inference.max_sequence_length}")
+        click.echo(f"  BCM Memory Size: {current_config.bcm.memory_size}")
+        click.echo(f"  RTEU Layers: {current_config.rteu.num_layers}")
+        click.echo(f"  IGPM Slots: {current_config.igpm.plastic_slots}")
+        
+        # Run benchmark if requested
+        if benchmark:
+            click.echo("\n🏃 Running performance benchmark...")
+            try:
+                # Import and run benchmark
+                from benchmarks.performance_benchmark import PerformanceBenchmark
+                benchmark = PerformanceBenchmark()
+                benchmark.benchmark_components()
+                benchmark.benchmark_full_model()
+                benchmark.save_results()
+                benchmark.print_summary()
+                click.echo("✅ Benchmark completed successfully!")
+            except Exception as e:
+                click.echo(f"⚠️ Benchmark failed: {e}")
+        
+    except Exception as e:
+        click.echo(f"❌ Error optimizing inference: {e}", err=True)
+        sys.exit(1)
+
+
+@cli.command()
+@click.option('--config-file', '-c', type=click.Path(exists=True), required=True,
               help='Configuration file to validate')
 @click.pass_context
 def validate(ctx, config_file):

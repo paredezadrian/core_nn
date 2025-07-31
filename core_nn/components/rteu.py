@@ -39,25 +39,27 @@ class TemporalCapsule(nn.Module):
         """Process input through temporal capsule."""
         batch_size = x.size(0)
         
+        # If input has sequence dimension, take the mean across sequence
+        if len(x.shape) == 3:  # [batch_size, seq_len, embedding_dim]
+            x = x.mean(dim=1)  # [batch_size, embedding_dim]
+        
         # Transform input
         transformed = self.W_transform(x)
         
+        # Ensure temporal state has correct batch size
+        if self.temporal_state.size(0) != batch_size:
+            self.temporal_state = self.temporal_state.expand(batch_size, -1).contiguous()
+        
         # Update temporal state based on timescale
         if self.step_counter % self.timescale == 0:
-            # Update state for this timescale
-            if self.temporal_state.size(0) != batch_size:
-                self.temporal_state = self.temporal_state.expand(batch_size, -1).contiguous()
-            
             # Temporal integration
             new_state = self.W_temporal(self.temporal_state) + transformed
             self.temporal_state = self.activation(new_state)
         
         self.step_counter += 1
         
-        # Return current temporal state
-        if self.temporal_state.size(0) != batch_size:
-            return self.temporal_state.expand(batch_size, -1)
-        return self.temporal_state
+        # Return current temporal state (ensure it's the right shape)
+        return self.temporal_state.clone()
     
     def reset_state(self):
         """Reset temporal state."""

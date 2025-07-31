@@ -4,7 +4,7 @@ This document provides comprehensive API documentation for CORE-NN (Context-Orie
 
 **Author:** Adrian Paredez ([@paredezadrian](https://github.com/paredezadrian))
 **Repository:** https://github.com/paredezadrian/core_nn.git
-**Version:** 0.2.2
+**Version:** 0.3.0
 
 ## Table of Contents
 
@@ -25,10 +25,49 @@ The main model class that integrates all CORE-NN components.
 ```python
 from core_nn import CoreNNModel, ConfigManager
 
-# Initialize model
+# Initialize model with optimized configuration (recommended)
 config_manager = ConfigManager()
-config = config_manager.load_config('configs/default.yaml')
+config = config_manager.load_config('configs/laptop_optimized_flexible_sequences.yaml')
 model = CoreNNModel(config)
+```
+
+### Optimized Model Variants
+
+#### LongContextCoreNNModel
+
+Extended model for long-context processing with support for 8000+ tokens.
+
+```python
+from optimization.long_context_fix import LongContextCoreNNModel
+
+# Initialize long-context model
+long_context_model = LongContextCoreNNModel(
+    config, 
+    vocab_size=50000, 
+    max_sequence_length=8192
+)
+
+# Process long sequences
+result = long_context_model(input_ids)  # Supports 8000+ tokens
+```
+
+#### MemoryOptimizedCoreNNModel
+
+Memory-optimized model with adaptive chunk sizing and memory management.
+
+```python
+from optimization.long_context_optimization import MemoryOptimizedCoreNNModel
+
+# Initialize memory-optimized model
+memory_model = MemoryOptimizedCoreNNModel(
+    config, 
+    vocab_size=50000, 
+    max_sequence_length=8192,
+    memory_limit_gb=10.0
+)
+
+# Process with memory constraints
+result = memory_model(input_ids)  # Automatic memory management
 ```
 
 #### Methods

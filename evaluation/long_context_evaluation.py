@@ -9,6 +9,7 @@ import torch
 import numpy as np
 import time
 import json
+import argparse
 from pathlib import Path
 from typing import Dict, Any, List, Tuple
 from dataclasses import dataclass
@@ -42,7 +43,22 @@ class LongContextEvaluator:
         
         # Load CORE-NN model
         self.core_nn_config = ConfigManager().load_config(config.model_config_path)
-        self.core_nn_model = CoreNNModel(self.core_nn_config, vocab_size=50000)
+        
+        # Try to use extended flexible model if available
+        try:
+            from optimization.position_embedding_fix import ExtendedFlexibleCoreNNModel
+            self.core_nn_model = ExtendedFlexibleCoreNNModel(self.core_nn_config, vocab_size=50000, max_sequence_length=4096)
+            print("Using extended flexible sequence length model (4096 tokens)")
+        except ImportError:
+            # Fallback to flexible model if available
+            try:
+                from optimization.flexible_sequence_handling import FlexibleCoreNNModel
+                self.core_nn_model = FlexibleCoreNNModel(self.core_nn_config, vocab_size=50000, max_sequence_length=200)
+                print("Using flexible sequence length model (200 tokens)")
+            except ImportError:
+                self.core_nn_model = CoreNNModel(self.core_nn_config, vocab_size=50000)
+                print("Using standard model")
+        
         self.core_nn_model.to(self.device)
         self.core_nn_model.eval()
         
@@ -293,15 +309,72 @@ class LongContextEvaluator:
 
 
 if __name__ == "__main__":
-    # Run long-context evaluation
-    config = EvaluationConfig()
-    evaluator = LongContextEvaluator(config)
+    # Parse command line arguments
+    parser = argparse.ArgumentParser(description="CORE-NN Long-Context Evaluation")
+    parser.add_argument("--max-tokens", type=int, default=4096,
+                       help="Maximum number of tokens to test")
+    parser.add_argument("--memory-limit", type=str, default="10GB",
+                       help="Memory limit for evaluation (e.g., 10GB)")
+    parser.add_argument("--cpu-only", action="store_true",
+                       help="Force CPU-only evaluation")
+    parser.add_argument("--config", type=str, default="configs/laptop_optimized.yaml",
+                       help="CORE-NN model configuration file path")
+    parser.add_argument("--output", type=str, default="long_context_results.json",
+                       help="Output file name for results")
+    parser.add_argument("--num-samples", type=int, default=5,
+                       help="Number of samples per sequence length")
+    parser.add_argument("--seed", type=int, default=42,
+                       help="Random seed for reproducibility")
     
+    args = parser.parse_args()
+    
+    # Determine device based on arguments
+    device = "cpu" if args.cpu_only else "auto"
+    
+    # Create evaluation configuration
+    config = EvaluationConfig(
+        model_config_path=args.config,
+        device=device,
+        num_samples=args.num_samples,
+        seed=args.seed
+    )
+    
+    print(f"Starting Long-Context Evaluation")
+    print(f"Device: {device}")
+    print(f"Max tokens: {args.max_tokens}")
+    print(f"Memory limit: {args.memory_limit}")
+    print(f"Config: {args.config}")
+    print(f"Output: {args.output}")
+    
+    # Run long-context evaluation
+    evaluator = LongContextEvaluator(config)
     results = evaluator.run_long_context_comparison()
     
     # Save results
     output_dir = Path("evaluation/results")
     evaluator.save_results(results, output_dir)
+    
+    # Save with specified filename if provided
+    if args.output:
+        output_path = output_dir / args.output
+        # Convert results to serializable format
+        serializable_results = {}
+        for model_name, model_results in results.items():
+            serializable_results[model_name] = [
+                {
+                    "model_name": r.model_name,
+                    "sequence_length": r.sequence_length,
+                    "accuracy": r.accuracy,
+                    "processing_time": r.processing_time,
+                    "memory_usage": r.memory_usage,
+                    "success_rate": r.success_rate
+                }
+                for r in model_results
+            ]
+        
+        with open(output_path, 'w') as f:
+            json.dump(serializable_results, f, indent=2)
+        print(f"\nResults saved to {output_path}")
     
     # Print final summary
     print(f"\n🎯 LONG-CONTEXT SUMMARY:")

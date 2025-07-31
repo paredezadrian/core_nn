@@ -114,6 +114,12 @@ Thumbs.db
 logs/
 log/
 
+# CORE-NN logs and profiling
+profile_core_nn.log
+optimization_*.log
+evaluation_*.log
+benchmark_*.log
+
 # CORE-NN specific
 sessions/
 *.session
@@ -125,6 +131,15 @@ benchmark_results/
 *.json
 runs/
 tensorboard_logs/
+
+# CORE-NN v0.3.0 additions
+optimization_results/
+evaluation_results/
+long_context_results/
+memory_optimization_results/
+parameter_analysis_results/
+cache/
+test_storage/
 
 # Temporary files
 tmp/
@@ -175,4 +190,8 @@ test_results/
 test_outputs/
 demo_knowledge.kpack
 
-.augmentignore
+# CORE-NN evaluation and optimization artifacts
+evaluation/results/
+optimization/results/
+benchmarks/results/
+analysis/results/
