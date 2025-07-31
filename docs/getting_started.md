@@ -102,7 +102,7 @@ CORE-NN uses YAML configuration files to manage model parameters:
 # configs/my_config.yaml
 model:
   name: "my-core-nn"
-  version: "1.0.0"
+  version: "0.2.2"
 
 bcm:
   memory_size: 512

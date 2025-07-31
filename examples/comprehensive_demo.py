@@ -231,7 +231,7 @@ def demo_custom_configuration():
     custom_config = CoreNNConfig(
         model=ModelConfig(
             name="demo-model",
-            version="1.0.0"
+            version="0.2.2"
         ),
         bcm=BCMConfig(
             memory_size=128,

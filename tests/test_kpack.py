@@ -35,7 +35,7 @@ class TestCapsuleMetadata:
         assert metadata.capsule_id != ""
         assert metadata.name == ""
         assert metadata.creator == "core-nn"
-        assert metadata.version == "1.0.0"
+        assert metadata.version == "0.2.2"
         assert isinstance(metadata.tags, list)
         assert isinstance(metadata.compatibility, dict)
     

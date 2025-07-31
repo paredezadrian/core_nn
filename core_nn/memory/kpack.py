@@ -51,7 +51,7 @@ class CapsuleMetadata:
     creation_time: str = field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
     modification_time: str = field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
     creator: str = "core-nn"
-    version: str = "1.0.0"
+    version: str = "0.2.2"
     compression_level: float = 0.0
     original_size: int = 0
     compressed_size: int = 0
