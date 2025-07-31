@@ -3,7 +3,7 @@
 
 model:
   name: "core-nn-default"
-  version: "0.1.0"
+  version: "0.2.2"
   
 # Biological Core Memory Configuration
 bcm:

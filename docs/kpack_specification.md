@@ -55,9 +55,9 @@ Offset | Size | Field           | Description
   "compressed_size": 262144,
   "embedding_dimensions": [768, 512, 256],
   "sketch_types": ["attention", "gradient", "activation"],
-  "source_model": "core-nn-v1.0",
+  "source_model": "core-nn-v0.2.2",
   "compatibility": {
-    "min_core_nn_version": "1.0.0",
+    "min_core_nn_version": "0.2.2",
     "required_features": ["mlcs", "rteu"]
   },
   "statistics": {
@@ -216,7 +216,7 @@ save_kpack(
 
 ## Compatibility
 
-- **Minimum CORE-NN Version**: 1.0.0
+- **Minimum CORE-NN Version**: 0.2.2
 - **Python Version**: 3.8+
 - **Dependencies**: numpy, torch, zstandard
 - **File Size Limits**: 2GB per capsule (practical limit)

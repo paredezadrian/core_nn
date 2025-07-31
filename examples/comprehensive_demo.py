@@ -12,7 +12,7 @@ This script demonstrates all major features of the CORE-NN architecture:
 
 Author: Adrian Paredez (@paredezadrian)
 Repository: https://github.com/paredezadrian/core_nn.git
-Version: 0.0.0-beta
+Version: 0.2.2
 """
 
 import torch

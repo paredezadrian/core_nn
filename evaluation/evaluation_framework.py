@@ -185,7 +185,7 @@ class PlasticityEvaluator(BaseEvaluator):
             metrics=metrics,
             execution_time=execution_time,
             memory_usage=memory_usage,
-            model_info={"enhanced_igpm": True, "version": "0.1.0-beta"},
+            model_info={"enhanced_igpm": True, "version": "0.2.2"},
             timestamp=time.strftime("%Y-%m-%d %H:%M:%S")
         )
     
@@ -406,7 +406,7 @@ class GLUEEvaluator(BaseEvaluator):
             metrics=metrics,
             execution_time=execution_time,
             memory_usage=memory_usage,
-            model_info={"enhanced_igpm": True, "version": "0.1.0-beta"},
+            model_info={"enhanced_igpm": True, "version": "0.2.2"},
             timestamp=time.strftime("%Y-%m-%d %H:%M:%S")
         )
 

@@ -198,8 +198,8 @@ If you use CORE-NN in your research, please cite:
 @software{paredez2024corenn,
   title={CORE-NN: Context-Oriented Recurrent Embedding Neural Network},
   author={Paredez, Adrian},
-  year={2024},
-  version={0.1.0-beta},
+  year={2025},
+  version={0.2.2},
   url={https://github.com/paredezadrian/core_nn.git}
 }
 ```

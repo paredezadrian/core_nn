@@ -300,7 +300,7 @@ def create_config_template(template_name: str = "basic") -> Dict[str, Any]:
         return {
             "model": {
                 "name": "core-nn-basic",
-                "version": "0.1.0"
+                "version": "0.2.2"
             },
             "bcm": {
                 "memory_size": 256,

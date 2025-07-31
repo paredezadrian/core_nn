@@ -149,7 +149,7 @@ class APIConfig:
 class ModelConfig:
     """Model metadata configuration."""
     name: str = "core-nn-default"
-    version: str = "0.0.0-beta"
+    version: str = "0.2.2"
 
 
 @dataclass

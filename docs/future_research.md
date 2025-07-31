@@ -4,7 +4,7 @@ This document outlines promising research directions and improvements for the CO
 
 **Author:** Adrian Paredez ([@paredezadrian](https://github.com/paredezadrian))
 **Repository:** https://github.com/paredezadrian/core_nn.git
-**Version:** 0.1.0-beta
+**Version:** 0.2.2
 
 ## Biological Core Memory (BCM) Enhancements
 
@@ -60,7 +60,7 @@ This document outlines promising research directions and improvements for the CO
 
 ## Instruction-Guided Plasticity Module (IGPM) Research
 
-### ✅ COMPLETED: Plasticity Mechanisms (v0.1.0-beta)
+### ✅ COMPLETED: Plasticity Mechanisms (v0.2.2)
 
 **Previous Status**: Simple plastic slots with fast weights, minimal plasticity observed in tests (0.0000 change magnitude).
 
@@ -225,7 +225,7 @@ This document outlines promising research directions and improvements for the CO
 
 Based on current implementation status and recent breakthroughs:
 
-### ✅ COMPLETED: IGMP Plasticity Enhancement (v0.1.0-beta)
+### ✅ COMPLETED: IGMP Plasticity Enhancement (v0.2.2)
 **Status**: COMPLETE - Major breakthrough achieved
 - **Problem Solved**: Fixed broken plasticity (0.0000 → 5.5+ change magnitude)
 - **Improvements Implemented**:
@@ -237,7 +237,7 @@ Based on current implementation status and recent breakthroughs:
 - **Impact**: Complete transformation from non-functional to sophisticated system
 - **Next**: Ready for real-world task evaluation
 
-### ✅ COMPLETED: Comprehensive Architecture Validation (v0.1.0-beta)
+### ✅ COMPLETED: Comprehensive Architecture Validation (v0.2.2)
 **Status**: COMPLETE - Full validation achieved across multiple dimensions
 - **Objective**: Validate CORE-NN as competitive instruction-guided neural architecture
 - **Results Achieved**:
@@ -416,11 +416,11 @@ Based on current implementation status and recent breakthroughs:
 - **Environment Documentation**: Document exact software/hardware environments
 - **Result Archiving**: Maintain comprehensive result archives
 
-## Recent Breakthroughs: Complete Architecture Validation & Competitive Performance (v0.1.0-beta)
+## Recent Breakthroughs: Complete Architecture Validation & Competitive Performance (v0.2.2)
 
 ### Major Achievements Completed
 
-**Date**: January 2025
+**Date**: July 2025
 **Milestones**: Complete IGMP plasticity overhaul + Real-world validation + Comprehensive baseline comparison + Long-context validation
 
 **Breakthrough Summary**:
@@ -459,7 +459,7 @@ This comprehensive validation establishes CORE-NN as a **competitive architectur
 
 ---
 
-## Major Achievements Summary (v0.1.0-beta)
+## Major Achievements Summary (v0.2.2)
 
 ### ✅ **Complete Architecture Validation Achieved**
 
