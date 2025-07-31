@@ -1,0 +1,24 @@
+CORE-NN Real-World Task Evaluation Summary
+==================================================
+
+PLASTICITY EVALUATION:
+  Score: 0.5125
+  Execution Time: 80.20s
+  Memory Usage: 78.95MB
+  Key Metrics:
+    average_plasticity_magnitude: 1.2811
+    average_adaptation_speed: 0.0000
+    average_context_sensitivity: 0.0004
+    num_instructions_tested: 8.0000
+
+GLUE EVALUATION:
+  Score: 0.6111
+  Execution Time: 11.73s
+  Memory Usage: 76.13MB
+  Key Metrics:
+    rte_score: 0.6667
+    wnli_score: 0.5000
+    sentiment_score: 0.6667
+    average_score: 0.6111
+    num_tasks: 3.0000
+
