@@ -358,10 +358,11 @@ class TestEdgeEfficientModularExecutionEngine:
         
         # Run optimization
         result = engine.optimize_memory()
-        
+
         assert isinstance(result, dict)
         assert "initial_memory_mb" in result
         assert "final_memory_mb" in result
+        assert result["final_memory_mb"] <= result["initial_memory_mb"]
 
 
 # Integration tests

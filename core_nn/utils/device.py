@@ -47,10 +47,11 @@ def get_optimal_device(preferred: str = "auto") -> torch.device:
 def get_device_info(device: Optional[torch.device] = None) -> Dict[str, Any]:
     """
     Get detailed device information.
-    
+
     Args:
-        device: Device to get info for (default: current device)
-        
+        device: Device to get info for. If ``None``, an optimal device is
+            auto-detected via ``get_optimal_device()``.
+
     Returns:
         Dictionary with device information
     """
