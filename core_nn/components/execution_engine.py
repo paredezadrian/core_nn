@@ -11,6 +11,7 @@ import asyncio
 import threading
 import queue
 import time
+import io
 import psutil
 from typing import Dict, List, Tuple, Optional, Any, Callable, Union
 from dataclasses import dataclass
@@ -124,7 +125,9 @@ class ModuleManager:
         try:
             # Serialize module
             module = self.modules[module_id]
-            serialized = torch.save(module.state_dict(), None)
+            buffer = io.BytesIO()
+            torch.save(module.state_dict(), buffer)
+            serialized = buffer.getvalue()
             
             # Store serialized version
             self.offloaded_modules[module_id] = serialized
