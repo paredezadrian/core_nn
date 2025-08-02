@@ -186,7 +186,10 @@ class TokenizerUtils:
         current_word = ""
         
         for token in tokens:
-            if token.endswith("@@"):
+            if token.startswith("@@") and token.endswith("@@"):
+                # Middle piece of a word
+                current_word += token[2:-2]
+            elif token.endswith("@@"):
                 # Start or continue a word
                 current_word += token[:-2]
             elif token.startswith("@@"):
@@ -196,11 +199,13 @@ class TokenizerUtils:
                     merged.append(current_word)
                     current_word = ""
             else:
-                # Complete token
+                # Final piece of a split word or a standalone token
                 if current_word:
+                    current_word += token
                     merged.append(current_word)
                     current_word = ""
-                merged.append(token)
+                else:
+                    merged.append(token)
         
         # Handle any remaining partial word
         if current_word:

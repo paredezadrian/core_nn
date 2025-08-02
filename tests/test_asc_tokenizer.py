@@ -7,8 +7,8 @@ import tempfile
 from pathlib import Path
 
 from core_nn.tokenization import (
-    ASCTokenizer, ASCConfig, TokenizerFactory, 
-    create_tokenizer_from_config, SimpleTokenizer
+    ASCTokenizer, ASCConfig, TokenizerFactory,
+    create_tokenizer_from_config, SimpleTokenizer, TokenizerUtils
 )
 from core_nn.config.schema import TokenizerConfig
 
@@ -197,6 +197,14 @@ class TestASCTokenizer:
 
         assert token_ids1 == token_ids2
         assert cache_hits > 0
+
+    def test_merge_subword_tokens_handles_suffixes(self):
+        """Ensure subword tokens merge across boundaries."""
+        tokens = ["token@@", "izer"]
+        assert TokenizerUtils.merge_subword_tokens(tokens) == ["tokenizer"]
+
+        tokens = ["multi@@", "@@part@@", "token"]
+        assert TokenizerUtils.merge_subword_tokens(tokens) == ["multiparttoken"]
     
     def test_statistics(self, tokenizer):
         """Test tokenizer statistics."""
