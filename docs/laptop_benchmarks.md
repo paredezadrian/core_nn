@@ -285,6 +285,6 @@
 
 ---
 
-*Benchmark Date: July 30, 2025*  
+*Benchmark Date: August 1, 2025*  
 *Hardware: Intel i5-11320H, 16GB RAM, Windows 10*  
 *Configuration: laptop_optimized.yaml* 

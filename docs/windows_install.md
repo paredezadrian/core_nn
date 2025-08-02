@@ -18,8 +18,8 @@
 
 1. **Clone the repository**
    ```powershell
-   git clone https://github.com/your-username/core-nn.git
-   cd core-nn
+   git clone https://github.com/paredezadrian/core_nn.git
+   cd core_nn
    ```
 
 2. **Create virtual environment**
@@ -129,10 +129,10 @@ model:
 cd C:\Users\YourUsername\Documents
 
 # Clone the repository
-git clone https://github.com/your-username/core-nn.git
+git clone https://github.com/paredezadrian/core_nn.git
 
 # Navigate to project directory
-cd core-nn
+cd core_nn
 ```
 
 ### **Step 5: Create Virtual Environment**
@@ -191,7 +191,7 @@ python -m core_nn.cli chat --config configs/laptop_optimized.yaml
 
 ```powershell
 # Run performance benchmark
-python benchmarks/performance_benchmark.py --cpu-focus --hardware-profile laptop
+python benchmarks/performance_benchmark.py --cpu-focus --detailed-timing --config configs/laptop_optimized.yaml
 
 # Expected results:
 # - Inference speed: 49.0 tokens/sec
@@ -301,9 +301,9 @@ pip install -r requirements.txt
 ## 📞 **Support**
 
 ### **Getting Help**
-- **GitHub Issues**: [Create an issue](https://github.com/your-username/core-nn/issues)
+- **GitHub Issues**: [Create an issue](https://github.com/paredezadrian/core_nn/issues)
 - **Documentation**: Check `docs/` directory
-- **Discussions**: [GitHub Discussions](https://github.com/your-username/core-nn/discussions)
+- **Discussions**: [GitHub Discussions](https://github.com/paredezadrian/core_nn/discussions)
 
 ### **Hardware-Specific Support**
 - **Intel i5-11320H**: This guide is specifically tested on your hardware
@@ -327,5 +327,5 @@ You've successfully installed CORE-NN optimized for your laptop!
 
 ---
 
-*Last updated: July 30, 2025*  
+*Last updated: August 1, 2025*  
 *Tested on: Intel i5-11320H, 16GB RAM, Windows 10* 
