@@ -7,7 +7,7 @@
 1. **Clone the repository:**
 ```bash
 git clone https://github.com/paredezadrian/core_nn.git
-cd core-nn
+cd core_nn
 ```
 
 2. **Install dependencies:**
